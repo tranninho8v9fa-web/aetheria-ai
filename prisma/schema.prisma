@@ -1,0 +1,45 @@
+// Aetheria AI — Prisma schema
+// Source of truth: "Bible of Aetheria AI" (database structure section)
+// Adapted to Prisma 7 generator format (prisma-client + output path).
+// Connection URL is loaded from prisma7.config.ts via DATABASE_URL.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id     String  @id @default(cuid())
+  email  String  @unique
+  name   String
+  orders Order[]
+}
+
+model Product {
+  id          String  @id @default(cuid())
+  title       String
+  price       Decimal
+  description String
+  demoUrl     String
+  imageUrl    String
+  orders      Order[]
+}
+
+model Order {
+  id        String      @id @default(cuid())
+  userId    String
+  productId String
+  status    OrderStatus @default(PENDING)
+  user      User        @relation(fields: [userId], references: [id])
+  product   Product     @relation(fields: [productId], references: [id])
+}
+
+enum OrderStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}

@@ -1,26 +1,195 @@
 @import "tailwindcss";
 
+/* =========================================================================
+   Aetheria AI — Design System ("Luxurious Futuristic AI Studio")
+   Source of truth: Bible of Aetheria AI
+   ========================================================================= */
+
+@theme {
+  /* Colors */
+  --color-bg:           #050505;
+  --color-bg-elev:      #0c0c0c;
+  --color-fg:           #ffffff;
+  --color-fg-muted:     rgba(255, 255, 255, 0.6);
+  --color-fg-subtle:    rgba(255, 255, 255, 0.4);
+  --color-cyan:         #00f0ff;
+  --color-cyan-soft:    rgba(0, 240, 255, 0.12);
+  --color-gold:         #d4af37;
+  --color-gold-soft:    rgba(212, 175, 55, 0.12);
+  --color-glass-bg:     rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+  --color-border:       rgba(255, 255, 255, 0.08);
+
+  /* Typography */
+  --font-sans:    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "SF Pro Display", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono:    ui-monospace, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  --font-display: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "SF Pro Display", "Inter", sans-serif;
+
+  /* Animations */
+  --animate-fade-in:    fade-in 0.8s ease-out forwards;
+  --animate-slide-up:   slide-up 0.6s ease-out forwards;
+  --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
+  --animate-shimmer:    shimmer 2.4s linear infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.6; }
+  50%      { opacity: 1; }
+}
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position:  200% 0; }
+}
+
+/* =========================================================================
+   Base
+   ========================================================================= */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  --shadow-glow-cyan: 0 0 30px rgba(0, 240, 255, 0.25);
+  --shadow-glow-gold: 0 0 30px rgba(212, 175, 55, 0.25);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 240, 255, 0.10), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(212, 175, 55, 0.06), transparent 70%),
+    radial-gradient(ellipse 40% 30% at 0% 60%, rgba(0, 240, 255, 0.04), transparent 70%);
+  background-attachment: fixed;
+}
+
+/* =========================================================================
+   Reusable utility classes
+   ========================================================================= */
+
+/* Glassmorphism card surface */
+.glass {
+  background-color: var(--color-glass-bg);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid var(--color-glass-border);
+}
+
+/* Gradient border via mask-composite (works in all modern browsers) */
+.gradient-border {
+  position: relative;
+  isolation: isolate;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.5), rgba(212, 175, 55, 0.5));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Text glows */
+.glow-cyan { text-shadow: 0 0 24px rgba(0, 240, 255, 0.45), 0 0 48px rgba(0, 240, 255, 0.20); }
+.glow-gold { text-shadow: 0 0 24px rgba(212, 175, 55, 0.45), 0 0 48px rgba(212, 175, 55, 0.20); }
+
+/* Animated gradient text (used for the headline) */
+.text-gradient-aurora {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-cyan) 0%,
+    var(--color-fg) 50%,
+    var(--color-gold) 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+/* Premium CTA button */
+.btn-gold {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  color: #050505;
+  background: linear-gradient(135deg, #f5d57a 0%, #d4af37 50%, #b88a25 100%);
+  box-shadow: var(--shadow-glow-gold);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.btn-gold:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
+}
+
+.btn-glass {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  color: var(--color-fg);
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border);
+  transition: background 200ms ease, border-color 200ms ease;
+}
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(0, 240, 255, 0.3);
+}
+
+/* Section padding */
+.section {
+  padding-block: clamp(4rem, 8vw, 7rem);
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+/* Animated glowing orb (used in Hero) */
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar      { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.08); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 240, 255, 0.3); }
+
+/* Selection */
+::selection {
+  background: rgba(0, 240, 255, 0.3);
+  color: #ffffff;
 }

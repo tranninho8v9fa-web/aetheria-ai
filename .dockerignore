@@ -1,0 +1,36 @@
+# Build / cache artefacts
+node_modules
+.next
+out
+build
+.turbo
+.vercel
+
+# Local env
+.env
+.env.local
+.env.*.local
+
+# Generated Prisma client (rebuilt inside the image)
+src/generated
+
+# Tooling noise
+.git
+.gitignore
+.github
+.DS_Store
+*.log
+*.tsbuildinfo
+next-env.d.ts
+
+# Editor / OS
+.vscode
+.idea
+.cursor
+.windsurf
+.claude
+.agents
+skills-lock.json
+
+# Docs (kept in repo, but no need inside image)
+README.md

@@ -1,0 +1,35 @@
+# Aetheria AI — Dokploy / docker compose
+# Dokploy reads this file (or a Dockerfile) and orchestrates Traefik
+# automatically. The labels below are hints; in production you usually
+# attach the domain via the Dokploy UI.
+
+services:
+  aetheria-ai:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: aetheria-ai:latest
+    container_name: aetheria-ai
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      - HOSTNAME=0.0.0.0
+      - PORT=3000
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/products').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    # Traefik labels (Dokploy auto-attaches the public domain; these are
+    # only here as a reference for a vanilla Traefik setup).
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.aetheria-ai.rule=Host(`aetheria.ai`)"
+      - "traefik.http.routers.aetheria-ai.entrypoints=websecure"
+      - "traefik.http.routers.aetheria-ai.tls.certresolver=letsencrypt"
+      - "traefik.http.services.aetheria-ai.loadbalancer.server.port=3000"

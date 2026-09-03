@@ -103,7 +103,7 @@ export function Hero() {
           {headlineWords.map((word, i) => (
             <span
               key={i}
-              className="inline-block overflow-hidden align-bottom"
+              className="inline-block align-bottom"
               style={{ marginRight: i === headlineWords.length - 1 ? 0 : "0.12em" }}
             >
               <motion.span

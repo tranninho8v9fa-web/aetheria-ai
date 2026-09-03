@@ -92,9 +92,20 @@ export function Hero() {
         </motion.div>
 
         {/* MASSIVE headline with letter-by-letter reveal */}
-        <h1 className="text-[clamp(3rem,12vw,11rem)] font-black leading-[0.85] tracking-[-0.05em] mb-12 select-none">
+        <h1
+          className="font-black leading-[0.9] tracking-[-0.04em] mb-12 select-none mx-auto"
+          style={{
+            fontSize: "clamp(2.25rem, 7.5vw, 6.5rem)",
+            textWrap: "balance",
+            maxWidth: "min(95vw, 1200px)",
+          }}
+        >
           {headlineWords.map((word, i) => (
-            <span key={i} className="inline-block overflow-hidden align-bottom mr-[0.18em] last:mr-0">
+            <span
+              key={i}
+              className="inline-block overflow-hidden align-bottom"
+              style={{ marginRight: i === headlineWords.length - 1 ? 0 : "0.12em" }}
+            >
               <motion.span
                 initial={{ y: "110%", filter: "blur(30px)", opacity: 0 }}
                 animate={{ y: "0%", filter: "blur(0px)", opacity: 1 }}

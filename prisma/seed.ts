@@ -6,7 +6,7 @@ const products = [
     title: "Obsidian Portfolio",
     price: 1200,
     description:
-      "A high-impact personal site for designers, devs, and creators. Editorial layout, motion-driven sections, contact capture.",
+      "Эффектный личный сайт для дизайнеров, разработчиков и креаторов. Редакционная вёрстка, моушн-секции, встроенный сбор контактов.",
     imageUrl:
       "https://images.unsplash.com/photo-1558655146-d09347e92766?w=1200&q=80",
     demoUrl: "https://demo.aetheria.ai/obsidian",
@@ -15,7 +15,7 @@ const products = [
     title: "Aether SaaS",
     price: 2400,
     description:
-      "Conversion-first SaaS landing page. Pricing tables, feature grids, animated hero, dark-first design system.",
+      "Лендинг для SaaS, заточенный под конверсию. Тарифы, фичи, анимированный hero, тёмная дизайн-система. Подключается к Stripe за вечер.",
     imageUrl:
       "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&q=80",
     demoUrl: "https://demo.aetheria.ai/aether-saas",
@@ -24,7 +24,7 @@ const products = [
     title: "Noir Agency",
     price: 1800,
     description:
-      "Bold agency homepage with case study grid, parallax scroll, and modular project pages. Built for studios.",
+      "Смелая главная для агентства: кейсы в виде сетки, параллакс при скролле, модульные страницы проектов. Создан для студий, которые продают смысл.",
     imageUrl:
       "https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=1200&q=80",
     demoUrl: "https://demo.aetheria.ai/noir-agency",
@@ -33,7 +33,7 @@ const products = [
     title: "Helix Commerce",
     price: 3200,
     description:
-      "Premium storefront for fashion and lifestyle brands. Editorial product detail, cart, checkout, Stripe-ready.",
+      "Премиальный магазин для fashion и lifestyle-брендов. Продуктовые карточки, корзина, чекаут, готов под Stripe. Без костылей и Shopify-комиссий.",
     imageUrl:
       "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=80",
     demoUrl: "https://demo.aetheria.ai/helix-commerce",
@@ -42,7 +42,7 @@ const products = [
     title: "Vertex Dashboard",
     price: 2800,
     description:
-      "Internal-tool-style admin template. Charts, tables, side nav, role-based UI — perfect for SaaS operators.",
+      "Шаблон админки в духе internal tools. Графики, таблицы, боковое меню, ролевая модель. Идеален для SaaS-операторов и команд роста.",
     imageUrl:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
     demoUrl: "https://demo.aetheria.ai/vertex-dashboard",
@@ -51,7 +51,7 @@ const products = [
     title: "Lumen Editorial",
     price: 1500,
     description:
-      "Long-form magazine layout. Type-driven, image-led, with subscriptions, paywall, and CMS hooks.",
+      "Длинный журнальный формат. Типографика, изображения, подписки, paywall, хуки под любую CMS. Для медиа, рассылок и бренд-журналов.",
     imageUrl:
       "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80",
     demoUrl: "https://demo.aetheria.ai/lumen-editorial",
@@ -65,7 +65,7 @@ const slugify = (s: string) =>
     .replace(/(^-|-$)/g, "");
 
 async function main() {
-  console.log("→ Seeding catalogue…");
+  console.log("→ Пересоздаю каталог (русские описания)…");
   let count = 0;
   for (const p of products) {
     const id = slugify(p.title);
@@ -77,7 +77,7 @@ async function main() {
     console.log(`  ✓ ${result.title} ($${result.price})`);
     count += 1;
   }
-  console.log(`Done. ${count} products in catalogue.`);
+  console.log(`Готово. ${count} продуктов в каталоге.`);
 }
 
 main()

@@ -12,26 +12,26 @@ export async function ProductGrid() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-xs uppercase tracking-[0.3em] text-cyan mb-3">
-            The Collection
+            Коллекция
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            Curated <span className="text-gradient-aurora">AI Sites</span>
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
+            Кураторская подборка{" "}
+            <span className="text-gradient-aurora">AI-сайтов</span>
           </h2>
           <p className="max-w-xl mx-auto text-fg-muted leading-relaxed">
-            Each template is hand-tuned and tested. Pick one, we deploy it for
-            you in 24 hours.
+            Каждый шаблон вручную доработан и протестирован. Выбирайте —
+            деплоим за 24 часа.
           </p>
         </div>
 
         {products.length === 0 ? (
           <div className="text-center text-fg-muted py-20 glass rounded-2xl">
-            <p className="text-lg mb-2">No products yet — check back soon.</p>
+            <p className="text-lg mb-2">Каталог пуст</p>
             <p className="text-sm text-fg-subtle">
-              (Run{" "}
+              Запустите{" "}
               <code className="text-cyan bg-cyan-soft px-1.5 py-0.5 rounded">
                 npm run db:seed
-              </code>{" "}
-              to populate the catalogue.)
+              </code>
             </p>
           </div>
         ) : (

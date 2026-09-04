@@ -21,25 +21,25 @@ const sections = [
     title: "Продукт",
     links: [
       { label: "Коллекция", href: "#collection" },
-      { label: "Процесс", href: "#process" },
-      { label: "Возможности", href: "#features" },
-      { label: "Отзывы", href: "#testimonials" },
+      { label: "Почему Aetheria", href: "#why" },
+      { label: "Кейсы", href: "#cases" },
+      { label: "Тарифы", href: "#pricing" },
     ],
   },
   {
     title: "Компания",
     links: [
-      { label: "О нас", href: "#" },
-      { label: "Кейсы", href: "#" },
-      { label: "Блог", href: "#" },
-      { label: "Карьера", href: "#" },
+      { label: "О нас", href: "#about" },
+      { label: "Контакт", href: "#contact" },
+      { label: "Кейсы", href: "#cases" },
+      { label: "FAQ", href: "#faq" },
     ],
   },
   {
-    title: "Юридическое",
+    title: "Документы",
     links: [
-      { label: "Условия", href: "#" },
-      { label: "Конфиденциальность", href: "#" },
+      { label: "Договор-оферта", href: "#" },
+      { label: "Политика конфиденциальности", href: "#" },
       { label: "Cookies", href: "#" },
     ],
   },
@@ -61,9 +61,9 @@ export function Footer() {
             </div>
             <p className="text-sm text-fg-muted max-w-sm leading-relaxed mb-6">
               Премиальные AI-сайты для амбициозных брендов. Создаём цифровые
-              продукты из будущего — сегодня.
+              продукты из будущего — сегодня. Москва, 2026.
             </p>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mb-6">
               <a
                 href="#"
                 className="w-9 h-9 rounded-full glass flex items-center justify-center hover:border-cyan/40 hover:text-cyan transition-colors"
@@ -86,6 +86,12 @@ export function Footer() {
                 <GithubIcon className="w-4 h-4" />
               </a>
             </div>
+            <a
+              href="mailto:hello@aetheria.ai"
+              className="text-sm text-cyan hover:underline"
+            >
+              hello@aetheria.ai
+            </a>
           </div>
 
           {sections.map((s) => (
@@ -108,10 +114,10 @@ export function Footer() {
 
         <div className="pt-8 border-t border-[var(--color-border)] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-fg-subtle tracking-wider uppercase">
-            © 2026 Aetheria AI · Создано в Москве
+            © 2026 Aetheria AI · ИП «Aetheria» · Москва
           </p>
           <p className="text-xs text-fg-subtle">
-            Powered by Next.js · Prisma · Neon · Cosmic Energy
+            Сделано на Next.js · Prisma · Neon · Cosmic Energy
           </p>
         </div>
       </div>

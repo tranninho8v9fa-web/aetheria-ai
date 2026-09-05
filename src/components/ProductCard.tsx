@@ -25,10 +25,11 @@ export function ProductCard({
   demoUrl,
   index,
 }: ProductCardProps) {
-  const formattedPrice = new Intl.NumberFormat("en-US", {
+  const formattedPrice = new Intl.NumberFormat("ru-RU", {
     style: "currency",
-    currency: "USD",
+    currency: "RUB",
     minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
   }).format(price);
 
   // 3D tilt on hover

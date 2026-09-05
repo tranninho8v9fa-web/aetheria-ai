@@ -7,10 +7,10 @@ import { Building2, Check, Loader2, Mail, MessageSquare, Send, User } from "luci
 type Status = "idle" | "loading" | "success" | "error";
 
 const budgets = [
-  "до $2,000",
-  "$2,000 — $5,000",
-  "$5,000 — $15,000",
-  "от $15,000",
+  "до 150 000 ₽",
+  "150 000 — 400 000 ₽",
+  "400 000 — 1 200 000 ₽",
+  "от 1 200 000 ₽",
   "Не определился",
 ];
 

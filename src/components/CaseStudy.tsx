@@ -8,7 +8,7 @@ const metrics = [
   { icon: TrendingUp, value: "+47%", label: "Конверсия" },
   { icon: Clock, value: "3.2x", label: "Время на сайте" },
   { icon: Users, value: "+62%", label: "Лиды" },
-  { icon: DollarSign, value: "$180K", label: "Выручка/мес" },
+  { icon: DollarSign, value: "14,7 млн ₽", label: "Выручка/мес" },
 ];
 
 export function CaseStudy() {
@@ -19,7 +19,7 @@ export function CaseStudy() {
           <p className="text-xs uppercase tracking-[0.3em] text-cyan mb-3">Кейс</p>
           <h2 className="text-4xl md:text-6xl font-bold tracking-tight">
             Как мы сделали{" "}
-            <span className="text-gradient-aurora">$180К/мес</span>
+            <span className="text-gradient-aurora">14,7 млн ₽/мес</span>
             <br />
             для Bloom за 12 дней
           </h2>

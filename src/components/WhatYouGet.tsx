@@ -6,7 +6,7 @@ import { Check, X } from "lucide-react";
 const tiers = [
   {
     name: "Готовый шаблон",
-    price: "от $1,200",
+    price: "от 99 000 ₽",
     description: "Идеально для быстрого старта и тестирования гипотез",
     features: [
       { text: "Готовый дизайн из коллекции", included: true },
@@ -21,7 +21,7 @@ const tiers = [
   },
   {
     name: "Кастом Pro",
-    price: "от $4,800",
+    price: "от 399 000 ₽",
     description: "Уникальный сайт, заточенный под ваш бренд",
     features: [
       { text: "Уникальный дизайн с нуля", included: true },
@@ -37,7 +37,7 @@ const tiers = [
   },
   {
     name: "Корпоративный",
-    price: "от $12,000",
+    price: "от 999 000 ₽",
     description: "Для больших продуктов и команд",
     features: [
       { text: "Всё из Pro-тарифа", included: true },

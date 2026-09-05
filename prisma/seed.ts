@@ -4,7 +4,7 @@ import { prisma } from "../src/lib/prisma";
 const products = [
   {
     title: "Obsidian Portfolio",
-    price: 1200,
+    price: 99000,
     description:
       "Эффектный личный сайт для дизайнеров, разработчиков и креаторов. Редакционная вёрстка, моушн-секции, встроенный сбор контактов.",
     imageUrl:
@@ -13,7 +13,7 @@ const products = [
   },
   {
     title: "Aether SaaS",
-    price: 2400,
+    price: 199000,
     description:
       "Лендинг для SaaS, заточенный под конверсию. Тарифы, фичи, анимированный hero, тёмная дизайн-система. Подключается к Stripe за вечер.",
     imageUrl:
@@ -22,7 +22,7 @@ const products = [
   },
   {
     title: "Noir Agency",
-    price: 1800,
+    price: 149000,
     description:
       "Смелая главная для агентства: кейсы в виде сетки, параллакс при скролле, модульные страницы проектов. Создан для студий, которые продают смысл.",
     imageUrl:
@@ -31,7 +31,7 @@ const products = [
   },
   {
     title: "Helix Commerce",
-    price: 3200,
+    price: 269000,
     description:
       "Премиальный магазин для fashion и lifestyle-брендов. Продуктовые карточки, корзина, чекаут, готов под Stripe. Без костылей и Shopify-комиссий.",
     imageUrl:
@@ -40,7 +40,7 @@ const products = [
   },
   {
     title: "Vertex Dashboard",
-    price: 2800,
+    price: 239000,
     description:
       "Шаблон админки в духе internal tools. Графики, таблицы, боковое меню, ролевая модель. Идеален для SaaS-операторов и команд роста.",
     imageUrl:
@@ -49,7 +49,7 @@ const products = [
   },
   {
     title: "Lumen Editorial",
-    price: 1500,
+    price: 129000,
     description:
       "Длинный журнальный формат. Типографика, изображения, подписки, paywall, хуки под любую CMS. Для медиа, рассылок и бренд-журналов.",
     imageUrl:
